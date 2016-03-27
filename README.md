@@ -1,2 +1,2 @@
 # PracticalMachineLearning
-Johns Hopkins' Coursera Data Science Specialization: Practical Machine Learning Assignment
+JHU's Coursera Data Science Specialization: Practical Machine Learning Assignment
