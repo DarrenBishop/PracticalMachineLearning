@@ -1,0 +1,52 @@
+---
+title: "Weight Lifting Tekkers Analysis"
+author: "mail@darrenbishop.com"
+date: "27 March 2016"
+output:
+  #pdf_document:
+  #  fig_caption: yes
+  #  keep_tex: yes
+  html_document:
+    fig_caption: yes
+    keep_md: yes
+header-includes:
+  - \usepackage{float}
+  - \let\origfigure\figure
+  - \let\endorigfigure\endfigure
+  - \renewenvironment{figure}{\expandafter\origfigure\expandafter[H]}{\endorigfigure}
+---
+
+```{r Set Options and Libs, message=FALSE, collapse=TRUE}
+library(knitr)
+library(dplyr)
+library(Hmisc)
+library(lubridate)
+library(ggplot2)
+library(gridExtra)
+library(scales)
+library(caret)
+library(rpart.plot)
+library(forecast)
+
+opts_chunk$set(message=FALSE, fig.path="figures/", fig.width=10, fig.align = "center")
+```
+
+```{r Download and Load Data, message=FALSE}
+load.file <- function(filename, url) {
+    if (!file.exists(filename)) {
+        download.file(url, destfile = filename)
+    }
+    read.csv(filename)
+}
+
+training = load.file("pml-training.csv", "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv")
+testing = load.file("pml-testing.csv", "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv")
+```
+
+## Executive Summary
+
+## Data Processing
+
+```{r}
+training$cvtd_timestamp = ymd_hms(training$cvtd_timestamp)
+```
